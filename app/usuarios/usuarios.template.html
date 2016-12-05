@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10" >
+            <h2>Listado de Usuario</h2>
+            <div *ngIf="listaUsuarios">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p>Información de los usuarios de la API Rest</p>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Nombre</td>
+                                <td>Nombre de Usuario</td>
+                                <td>Correo</td>
+                                <td>Teléfono</td>
+                                <td>Ciudad de Residencia</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usuario of listaUsuarios" >
+                                <td>{{usuario.name | nombreusuario}}</td>
+                                <td>{{usuario.username}}</td>
+                                <td>{{usuario.email | lowercase}}</td>
+                                <td>{{usuario.phone}}</td>
+                                <td>{{usuario.address.suite + 
+                                    ", " + usuario.address.street 
+                                    +", "+ usuario.address.city}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
